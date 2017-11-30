@@ -289,7 +289,9 @@ jobs:
   - get: fission-version
     passed: [ 'release' ]
   - get: fission-function-src
-    tag: fission-version/number 
+    passed: [ 'release' ]
+    params: 
+      tag: fission-version/number 
   - task: build
     image: docker-image-go-builder
     file: oic-ci-tasks-src/function/build/build_function.yaml
