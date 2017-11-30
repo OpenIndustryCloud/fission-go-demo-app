@@ -286,12 +286,16 @@ jobs:
 
 - name: publish-to-production
   plan:
-  - get: fission-version
-    passed: [ 'release' ]
-  - get: fission-function-src
-    passed: [ 'release' ]
-    params: 
-      tag: fission-version/number 
+  - aggregate: 
+    - get: docker-image-fission-cli
+    - get: docker-image-go-builder
+    - get: oic-ci-tasks-src
+    - get: fission-version
+      passed: [ 'release' ]
+    - get: fission-function-src
+      passed: [ 'release' ]
+      params: 
+        tag: fission-version/number 
   - task: build
     image: docker-image-go-builder
     file: oic-ci-tasks-src/function/build/build_function.yaml
