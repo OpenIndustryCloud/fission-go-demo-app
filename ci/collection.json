@@ -1,0 +1,68 @@
+{
+	"info": {
+		"name": "demo-app",
+		"_postman_id": "a70aabae-6419-0567-2c4c-f743a035227c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "demo-app",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Echo - Correct HTTP Code\", function() {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test(\"Echo - Received JSON back\", function() {",
+							"    pm.response.to.be.json;",
+							"})",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"ticket\");",
+							"});",
+							"",
+							"pm.test(\"has non empty ticket object\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.ticket).to.not.eql();",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"tranformed-data\":{\"status\":200,\"ticket_details\":{\"ticket\":{\"comment\":{\"html_body\":\"\\u003cp\\u003e\\u003cb\\u003eIf there has been any recent maintenance carried out on your home, please describe it\\u003c/b\\u003e : No maintenance carried out\\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eIf you have any other insurance or warranties covering your home, please advise us of the company name.\\u003c/b\\u003e : No\\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eWe have made the following assumptions about your property, you and anyone living with you\\u003c/b\\u003e : \\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eWhen did the incident happen?\\u003c/b\\u003e : 2017-01-01\\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eAre you still have possession of the damage items (i.e. damaged guttering)?\\u003c/b\\u003e : \\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eAre you aware of anything else relevant to your claim that you would like to advise us of at this stage?\\u003c/b\\u003e : I would need the vendors contact for repairing the roof\\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eWould you like to upload more images?\\u003c/b\\u003e : \\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eWhere did the incident happen? (City/town name)\\u003c/b\\u003e : birmingham\\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003eIn as much detail as possible, please use the text box below to describe the full extent of the damage to your home and how you discovered it.\\u003c/b\\u003e : Roof Damaged\\u003c/p\\u003e\\u003chr\\u003e\\u003cp\\u003e\\u003cb\\u003ePlease describe the details of the condition of your home prior to discovering the damage\\u003c/b\\u003e : Tiles blown away\\u003c/p\\u003e\\u003chr\\u003e\"},\"custom_fields\":null,\"email\":\"amitkumarvarman@gmail.com\",\"phone\":\"09876512345\",\"priority\":\"normal\",\"requester\":{\"email\":\"amitkumarvarman@gmail.com\",\"locale_id\":1,\"name\":\"Amit Varman\"},\"status\":\"new\",\"subject\":\"Storm surge risk data\",\"type\":\"incident\"}},\"weather-api-input\":{\"city\":\"birmingham\",\"country\":\"\",\"date\":\"20170101\"}},\"weather-data\":{\"status\":200,\"history\":{\"dailysummary\":[{\"fog\":\"0\",\"maxpressurem\":\"1025\",\"maxtempm\":\"7\",\"maxwspdm\":\"28\",\"minpressurem\":\"1014\",\"mintempm\":\"0\",\"minwspdm\":\"7\",\"rain\":\"1\",\"tornado\":\"0\"}]},\"response\":{\"version\":\"0.1\"}},\"weatherRisk\":{\"description\":\"Possible Stormy weather\",\"riskScore\":50}}"
+				},
+				"url": {
+					"raw": "http://fission.landg.madeden.net/demo-app",
+					"protocol": "http",
+					"host": [
+						"fission",
+						"landg",
+						"madeden",
+						"net"
+					],
+					"path": [
+						"demo-app"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
