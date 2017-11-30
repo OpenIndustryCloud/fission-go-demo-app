@@ -1,6 +1,6 @@
-# fission-go-add-risk-data
+# fission-go-demo-app
 
-[![Coverage Status](https://coveralls.io/repos/github/OpenIndustryCloud/fission-go-add-risk-data/badge.svg?branch=master)](https://coveralls.io/github/OpenIndustryCloud/fission-go-add-risk-data?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/OpenIndustryCloud/fission-go-demo-app/badge.svg?branch=master)](https://coveralls.io/github/OpenIndustryCloud/fission-go-demo-app?branch=master)
 
-This API would would accept transformed TYPE FORM data, Weather Details, Risk Data and update payload to create ticket in Zendesk
-test
+This is a demo only app that uses the code of another app but is not used by any workflow. 
+
